@@ -1,34 +1,50 @@
 import { Link } from 'react-router-dom';
-import aboutImg from '../assets/images/img (4).webp';
+import aboutImg from '../assets/images/img (5).webp';
+import './AboutPreview.css';
 
 function AboutPreview() {
   return (
-    <section className="about_section layout_padding">
+    <section className="about-preview" id="about">
       <div className="container">
-        <div className="row">
-          <div className="col-md-6">
-            <div className="detail-box">
-              <div className="heading_container">
-                <h2>About Us</h2>
-              </div>
-              <p>
-                Our core values are sustainability, gender equity and inclusivity,
-                climate action, and plastic waste reduction.
-              </p>
-              <p>
-                Going forward we want to produce sanitary pads as well as other
-                packages like boxes, envelopes, egg crates, disposable cups and
-                plates amongst others.
-              </p>
-              <Link to="/about" className="btn1">
-                Read More
-              </Link>
-            </div>
+        <div className="about-preview-grid">
+          <div className="about-preview-image">
+            <img src={aboutImg} alt="About IFA VENTURES" />
+            <div className="image-accent"></div>
           </div>
-          <div className="col-md-6">
-            <div className="img-box">
-              <img src={aboutImg} alt="About IFA VENTURES" />
+          <div className="about-preview-content">
+            <span className="section-label">About Us</span>
+            <h2>Transforming Waste into Opportunity</h2>
+            <p className="about-description">
+              IFA VENTURES extracts fiber from plant waste such as plantain and banana waste, 
+              saw dust, and other agricultural byproducts to create high-quality paper bags. 
+              We are committed to sustainability, community empowerment, and environmental protection.
+            </p>
+            <div className="about-features">
+              <div className="feature-item">
+                <div className="feature-icon">🌱</div>
+                <div className="feature-text">
+                  <h4>Eco-Friendly</h4>
+                  <p>100% biodegradable products</p>
+                </div>
+              </div>
+              <div className="feature-item">
+                <div className="feature-icon">🤝</div>
+                <div className="feature-text">
+                  <h4>Inclusive</h4>
+                  <p>Employment for all community members</p>
+                </div>
+              </div>
+              <div className="feature-item">
+                <div className="feature-icon">♻️</div>
+                <div className="feature-text">
+                  <h4>Sustainable</h4>
+                  <p>Zero-waste production process</p>
+                </div>
+              </div>
             </div>
+            <Link to="/about" className="btn btn-primary">
+              Learn More
+            </Link>
           </div>
         </div>
       </div>

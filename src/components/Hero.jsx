@@ -1,77 +1,80 @@
-import { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import heroImg1 from '../assets/images/herp (1).webp';
+import heroImg2 from '../assets/images/herp (2).webp';
+import heroImg3 from '../assets/images/slider-bg.jpg';
+import './Hero.css';
 
-// Import carousel images
-import img1 from '../assets/images/herp (1).webp';
-import img2 from '../assets/images/img (2).webp';
-import img3 from '../assets/images/img (3).webp';
+function Hero({ interval = 5000 }) {
+  const [currentSlide, setCurrentSlide] = useState(0);
 
-const carouselImages = [img1, img2, img3];
-
-function Hero() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const carouselRef = useRef(null);
+  const slides = [
+    {
+      image: heroImg1,
+      title: 'Sustainable Solutions',
+      subtitle: 'Transforming plant waste into eco-friendly paper products',
+    },
+    {
+      image: heroImg2,
+      title: 'Empowering Communities',
+      subtitle: 'Creating opportunities for youth, women, and persons with disabilities',
+    },
+    {
+      image: heroImg3,
+      title: 'Environmental Impact',
+      subtitle: 'Reducing waste and plastic dependency across Ghana',
+    },
+  ];
 
   useEffect(() => {
-    // Auto-advance carousel every 5 seconds
-    const interval = setInterval(() => {
-      setActiveIndex((prevIndex) => (prevIndex + 1) % carouselImages.length);
-    }, 5000);
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, interval);
 
-    return () => clearInterval(interval);
-  }, []);
-
-  const handleSlideTo = (index) => {
-    setActiveIndex(index);
-  };
+    return () => clearInterval(timer);
+  }, [interval, slides.length]);
 
   return (
-    <section className="slider_section">
-      <div id="customCarousel1" className="carousel slide" data-ride="carousel" ref={carouselRef}>
-        <div className="carousel-inner">
-          {carouselImages.map((img, index) => (
-            <div
-              key={index}
-              className={`carousel-item ${index === activeIndex ? 'active' : ''}`}
-            >
-              <div className="container">
-                <div className="row">
-                  <div className="col-md-6">
-                    <div className="img-box">
-                      <img src={img} alt={`IFA VENTURES slide ${index + 1}`} />
-                    </div>
-                  </div>
-                  <div className="col-md-6">
-                    <div className="detail-box">
-                      <h1>IFA VENTURES</h1>
-                      <p>
-                        Aims to reduce the waste produced in markets, farms, saw mills etc,
-                        reduce reliance on plastic packaging and more importantly create jobs
-                        for the youth, women and persons with disabilities.
-                      </p>
-                      <div className="btn-box">
-                        <Link to="/contact" className="btn1">
-                          Contact Us
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+    <section className="hero">
+      <div className="hero-slides">
+        {slides.map((slide, index) => (
+          <div
+            key={index}
+            className={`hero-slide ${index === currentSlide ? 'hero-slide-active' : ''}`}
+          >
+            <div className="hero-overlay"></div>
+            <img src={slide.image} alt={slide.title} className="hero-image" />
+            <div className="hero-content">
+              <h1 className="hero-title">{slide.title}</h1>
+              <p className="hero-subtitle">{slide.subtitle}</p>
+              <div className="hero-buttons">
+                <a href="#about" className="btn btn-primary">
+                  Learn More
+                </a>
+                <a href="/contact" className="btn btn-secondary">
+                  Get in Touch
+                </a>
               </div>
             </div>
-          ))}
+          </div>
+        ))}
+      </div>
+
+      <div className="hero-indicators">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            className={`hero-indicator ${index === currentSlide ? 'hero-indicator-active' : ''}`}
+            onClick={() => setCurrentSlide(index)}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </div>
+
+      <div className="hero-scroll-indicator">
+        <div className="scroll-mouse">
+          <div className="scroll-wheel"></div>
         </div>
-        <ol className="carousel-indicators">
-          {carouselImages.map((_, index) => (
-            <li
-              key={index}
-              data-target="#customCarousel1"
-              data-slide-to={index}
-              className={index === activeIndex ? 'active' : ''}
-              onClick={() => handleSlideTo(index)}
-            ></li>
-          ))}
-        </ol>
+        <span>Scroll</span>
       </div>
     </section>
   );

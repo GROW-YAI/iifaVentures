@@ -7,7 +7,7 @@ function CaseSection() {
     <section className="case_section layout_padding">
       <div className="container">
         <div className="heading_container">
-          <h2></h2>
+          <h2>Our Process</h2>
         </div>
         <div className="row">
           <div className="col-md-6">

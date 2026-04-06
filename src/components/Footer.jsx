@@ -1,100 +1,107 @@
 import { Link } from 'react-router-dom';
+import './Footer.css';
 
 function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <div className="footer_container">
-      <section className="info_section">
+    <footer className="modern-footer">
+      <div className="footer-wave">
+        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="currentColor"/>
+        </svg>
+      </div>
+
+      <div className="footer-content">
         <div className="container">
-          <div className="row">
-            <div className="col-md-6 col-lg-3">
-              <div className="info_detail">
-                <h4>IFA VENTURES</h4>
-                <p>
-                  We extract fiber from plant waste such as plantain and banana
-                  waste, saw dust etc to make paper bags. The waste is sourced
-                  from the local community, markets, farms, etc.
-                </p>
+          <div className="footer-grid">
+            {/* Company Info */}
+            <div className="footer-section footer-about">
+              <h3 className="footer-logo">IFA VENTURES</h3>
+              <p className="footer-description">
+                We extract fiber from plant waste.
+              </p>
+              <div className="footer-certifications">
+                <span className="cert-badge">🌱 Eco-Friendly</span>
+                <span className="cert-badge">♻️ Sustainable</span>
               </div>
             </div>
-            <div className="col-md-6 col-lg-2 mx-auto">
-              <div className="info_link_box">
-                <h4>Links</h4>
-                <div className="info_links">
-                  <Link className="" to="/">
-                    Home
-                  </Link>
-                  <Link className="" to="/about">
-                    About
-                  </Link>
-                  <Link className="" to="/contact">
-                    Contact Us
-                  </Link>
+
+            {/* Quick Links */}
+            <div className="footer-section footer-links">
+              <h4>Quick Links</h4>
+              <nav className="footer-nav">
+                <Link to="/" className="footer-link">
+                  <span className="link-icon">→</span> Home
+                </Link>
+                <Link to="/about" className="footer-link">
+                  <span className="link-icon">→</span> About Us
+                </Link>
+                <Link to="/contact" className="footer-link">
+                  <span className="link-icon">→</span> Contact
+                </Link>
+              </nav>
+            </div>
+
+            {/* Contact Info */}
+            <div className="footer-section footer-contact">
+              <h4>Get in Touch</h4>
+              <div className="contact-info-list">
+                <div className="contact-info-item">
+                  <span className="info-icon">📍</span>
+                  <span>Sunyani-Penkwasi, Ghana</span>
+                </div>
+                <div className="contact-info-item">
+                  <span className="info-icon">📞</span>
+                  <a href="tel:0208355538">0208355538</a>
+                </div>
+                <div className="contact-info-item">
+                  <span className="info-icon">📧</span>
+                  <a href="mailto:ifaventures68@gmail.com">ifaventures68@gmail.com</a>
                 </div>
               </div>
             </div>
-            <div className="col-md-6 col-lg-3 mb-0 ml-auto">
-              <div className="info_contact">
-                <h4>Address</h4>
-                <div className="contact_link_box">
-                  <a
-                    href="https://www.google.com/maps/search/Sunyani-Penkwase/@7.3496866,-2.3306102,15z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI1MDMwMy4wIKXMDSoJLDEwMjExNDUzSAFQAw%3D%3"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <i className="fa fa-map-marker" aria-hidden="true"></i>
-                    <span>Sunyani-Penkwasi</span>
-                  </a>
-                  <a href="tel:0208355538">
-                    <i className="fa fa-phone" aria-hidden="true"></i>
-                    <span>Call 0208355538</span>
-                  </a>
-                  <a href="tel:0554860106">
-                    <i className="fa fa-phone" aria-hidden="true"></i>
-                    <span>0554860106</span>
-                  </a>
-                  <a href="mailto:ifaventures68@gmail.com">
-                    <i className="fa fa-envelope" aria-hidden="true"></i>
-                    <span>ifaventures68@gmail.com</span>
-                  </a>
-                </div>
-              </div>
-              <div className="info_social">
-                <a href="" aria-label="Facebook">
-                  <i className="fa fa-facebook" aria-hidden="true"></i>
+
+            {/* Social Media */}
+            <div className="footer-section footer-social">
+              <h4>Follow Us</h4>
+              <div className="social-media-links">
+                <a href="#" className="social-link" aria-label="Facebook">
+                  <i className="fa fa-facebook-f"></i>
                 </a>
-                <a href="" aria-label="Twitter">
-                  <i className="fa fa-twitter" aria-hidden="true"></i>
+                <a href="#" className="social-link" aria-label="Twitter">
+                  <i className="fa fa-twitter"></i>
                 </a>
-                <a href="" aria-label="LinkedIn">
-                  <i className="fa fa-linkedin" aria-hidden="true"></i>
+                <a href="#" className="social-link" aria-label="LinkedIn">
+                  <i className="fa fa-linkedin-in"></i>
                 </a>
-                <a href="" aria-label="Instagram">
-                  <i className="fa fa-instagram" aria-hidden="true"></i>
+                <a href="#" className="social-link" aria-label="Instagram">
+                  <i className="fa fa-instagram"></i>
                 </a>
               </div>
+              <p className="social-text">
+                Stay updated with our latest sustainability initiatives and products.
+              </p>
             </div>
           </div>
         </div>
-      </section>
-      <br />
-      <footer className="footer_section">
+      </div>
+
+      {/* Footer Bottom */}
+      <div className="footer-bottom">
         <div className="container">
-          <div
-            style={{
-              borderTop: '1px dashed #ccc',
-              padding: '10px',
-              textAlign: 'center',
-              color: 'aliceblue',
-            }}
-          >
-            <hr />
+          <div className="bottom-content">
+            <p className="copyright">
+              © {currentYear} IFA VENTURES. All rights reserved.
+            </p>
+            <div className="footer-bottom-links">
+              <a href="#" className="bottom-link">Privacy Policy</a>
+              <a href="#" className="bottom-link">Terms of Service</a>
+            </div>
           </div>
-          <p>@Copyright {currentYear}</p>
         </div>
-      </footer>
-    </div>
+      </div>
+    </footer>
   );
 }
 
