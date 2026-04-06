@@ -1,0 +1,5 @@
+/* Import all CSS files */
+@import './assets/bootstrap.css';
+@import './assets/font-awesome.min.css';
+@import './assets/style.css';
+@import './assets/responsive.css';
