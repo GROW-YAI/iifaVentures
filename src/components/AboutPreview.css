@@ -1,0 +1,132 @@
+/* About Preview Section */
+
+.about-preview {
+  padding: 6rem 0;
+  background: var(--white);
+}
+
+.about-preview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-preview-image {
+  position: relative;
+}
+
+.about-preview-image img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+.image-accent {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  width: 200px;
+  height: 200px;
+  background: var(--primary-green);
+  border-radius: var(--radius-lg);
+  z-index: -1;
+  opacity: 0.2;
+}
+
+.section-label {
+  display: inline-block;
+  color: var(--primary-green);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+}
+
+.about-preview-content h2 {
+  font-size: 2.5rem;
+  color: var(--black);
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.about-description {
+  font-size: 1.1rem;
+  color: var(--medium-gray);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.about-features {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--off-white);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-normal);
+}
+
+.feature-item:hover {
+  transform: translateX(10px);
+  background: var(--light-gray);
+}
+
+.feature-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.feature-text h4 {
+  font-size: 1rem;
+  color: var(--black);
+  margin-bottom: 0.25rem;
+}
+
+.feature-text p {
+  font-size: 0.9rem;
+  color: var(--medium-gray);
+  margin: 0;
+}
+
+@media (max-width: 992px) {
+  .about-preview-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .about-preview-image img {
+    height: 400px;
+  }
+
+  .image-accent {
+    width: 150px;
+    height: 150px;
+    bottom: -10px;
+    right: -10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-preview {
+    padding: 4rem 0;
+  }
+
+  .about-preview-content h2 {
+    font-size: 2rem;
+  }
+
+  .about-preview-image img {
+    height: 300px;
+  }
+}
